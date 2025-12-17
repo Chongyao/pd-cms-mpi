@@ -3,6 +3,8 @@
 #include <spdlog/spdlog.h>
 #include <fmt/core.h>
 #include "save_spm.hpp" // 包含 zcy::io::read_spm
+#include "timer.hpp"
+#include "eig.hpp"
 
 int main(int argc, char** argv) {
     MPI_Init(&argc, &argv);
@@ -12,8 +14,16 @@ int main(int argc, char** argv) {
 
     // 默认数据目录为当前目录，也可以通过参数传入
     std::string data_dir = ".";
+    int nev = 10;; // 需要的特征值数量
+    double threshold = 1e-8; // 特征值阈值
     if (argc > 1) {
         data_dir = argv[1];
+    }
+    if (argc > 2) {
+        nev = std::stoi(argv[2]);
+    }
+    if (argc > 3) {
+        threshold = std::stod(argv[3]);
     }
 
     try {
@@ -40,9 +50,13 @@ int main(int argc, char** argv) {
                      K_local.rows(), K_local.cols(), K_local.nonZeros(),
                      M_local.rows(), M_local.cols(), M_local.nonZeros());
 
-        // 可以在这里加一个简单的数值检查，比如检查对角线元素不为0 (可选)
-        
-    } catch (const std::exception& e) {
+        //solve eigen
+        // 使用 Spectra 求解广义特征值问题
+        Eigen::MatrixXd eig_vecs;
+        Eigen::VectorXd eig_vals;
+        zcy::TIMING::TIC("call-spectra-cholmod");
+        solve_minimal_eig_sparseB(K_local, M_local, nev, eig_vals, eig_vecs, 0.0, 10000, threshold);
+        zcy::TIMING::TOC("call-spectra-cholmod", true);    } catch (const std::exception& e) {
         spdlog::error("Rank {:02d} Error: {}", rank, e.what());
         MPI_Abort(MPI_COMM_WORLD, 1);
     }
