@@ -119,7 +119,7 @@ std::string getPartitionName(const std::string& path)
     }
     return path.substr(start, end - start);
 }
-std::vector<cms_partition> read_cms_partitions(const std::vector<std::string>& part_paths, size_t num_partition, const std::string& output_path)
+std::vector<cms_partition> read_cms_partitions(const std::vector<std::string>& part_paths, size_t num_partition)
 {
     if (part_paths.size() != num_partition) {
         std::cerr << "Error: --num-partitions=" << num_partition

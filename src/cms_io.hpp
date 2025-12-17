@@ -14,7 +14,7 @@ void writeSubstructureEV(const std::string& filename, const Eigen::MatrixXd& eig
 
 
 // io of cms partitions and results together
-std::vector<cms_partition> read_cms_partitions(const std::vector<std::string>& part_paths, size_t num_partition, const std::string& output_path);
+std::vector<cms_partition> read_cms_partitions(const std::vector<std::string>& part_paths, size_t num_partition);
 
 
 }
