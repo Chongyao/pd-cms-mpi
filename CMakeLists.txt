@@ -33,14 +33,11 @@ set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 set(INCLUDES
   suitesparse
   openmp
-  boost
   eigen
   spectra
   blas
   fmt
   spdlog
-  # mkl
-  # mpi
 )
 
 foreach(INCLUDE IN LISTS INCLUDES)
