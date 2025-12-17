@@ -36,6 +36,7 @@ set(INCLUDES
   blas
   fmt
   spdlog
+  mpi
 )
 
 foreach(INCLUDE IN LISTS INCLUDES)

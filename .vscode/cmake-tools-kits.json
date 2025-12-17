@@ -1,0 +1,10 @@
+  {
+    "name": "oneMKL GCC",
+    "description": "GCC with Intel oneMKL environment",
+    "compilers": {
+      "C": "/usr/bin/gcc",
+      "CXX": "/usr/bin/g++"
+    },
+    "environmentScript": "/opt/intel/oneapi/setvars.sh",
+    "isTrusted": true
+  }
