@@ -57,6 +57,8 @@ int main(int argc, char** argv) {
         } else {
             spdlog::error("Spectra computation failed.");
         }
+    }else{
+        spdlog::info("MPI Rank {} ready.", rank);
     }
 
     MPI_Finalize();
