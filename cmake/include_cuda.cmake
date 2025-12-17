@@ -1,8 +1,0 @@
-include(CheckLanguage)
-set(CUDAToolkit_INCLUDE_DIR /usr)
-set(CUDA_TOOLKIT_ROOT_DIR /usr/local/cuda)
-check_language(CUDA)
-enable_language(CUDA)
-find_package(CUDAToolkit REQUIRED)
-find_package(CUDA REQUIRED)
-message(STATUS "CUDA ${CUDA_VERSION} found: ${CUDA_FOUND}")
