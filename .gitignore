@@ -50,4 +50,6 @@ CMakeUserPresets.json
 build
 build-release-clang
 .cache
+run/*.csc
+run
 
