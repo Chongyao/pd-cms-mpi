@@ -2,6 +2,7 @@
 #include <Eigen/Core>
 #include <Eigen/SparseCore>
 #include <cstddef>
+#include <span>
 #include <iostream>
 #include <span>
 #include <unordered_set>

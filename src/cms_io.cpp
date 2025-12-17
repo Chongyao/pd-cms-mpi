@@ -128,9 +128,7 @@ std::vector<cms_partition> read_cms_partitions(const std::vector<std::string>& p
     }
 
     vector<cms_partition> partitions;
-    vector<cms_res> results;
     partitions.reserve(num_partition);
-    results.reserve(num_partition);
     std::vector<std::vector<size_t>> orders(num_partition), offsets(num_partition);
 
     for (size_t i = 0; i < num_partition; ++i) {

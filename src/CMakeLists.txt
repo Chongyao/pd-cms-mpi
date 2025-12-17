@@ -10,3 +10,4 @@ target_link_libraries(cms
   SuiteSparse::CHOLMOD
   Eigen3_WITH_BLAS
 )
+target_compile_features(cms PUBLIC cxx_std_20)

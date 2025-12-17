@@ -55,5 +55,5 @@ target_compile_definitions(Eigen3_WITH_BLAS
     EIGEN_USE_MKL_ALL
     EIGEN_USE_BLAS
     EIGEN_USE_LAPACKE
-    # INTERFACE "UI" # 这里的 "UI" 看起来是个笔误？如果是宏定义请保留
+    EIGEN_MKL_NO_DIRECT_CALL  # <--- 添加这一行
 )
