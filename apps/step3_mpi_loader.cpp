@@ -94,6 +94,20 @@ int main(int argc, char** argv) {
     double shift = -0.1;
     double threshold = 1e-6; // 你的代码里好像没用到这个，但在 spectra_cholmod 里可能有
 
+    if (argc > 2) {
+        nev = std::stoi(argv[2]);
+    }
+    if (argc > 3) {
+        shift = std::stod(argv[3]);     
+    }
+    if (argc > 4) {
+        threshold = std::stod(argv[4]);
+    }
+    if(rank == 0){
+        spdlog::info("Rank {}: Solving {} eigenvalues with shift {}, threshold {}", rank, nev, shift, threshold);
+    }
+    
+
     try {
         // 调用 src/eig.cpp 中的封装函数
         solve_minimal_eig_sparseB(K_local, M_local, nev, eig_vals, eig_vecs, shift, 10000, threshold);
