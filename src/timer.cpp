@@ -28,7 +28,9 @@ void TIMING::__TIME_BEGIN__(const std::string& key, size_t thread_id)
 std::unordered_map<std::string, std::chrono::steady_clock::time_point>& TIMING::get_timer_list(size_t thread_id)
 {
     if (timer_list_threads.size() <= thread_id) {
-        std::cout << "resize timer list \n";
+        if( timer_list_threads.size() != 0 ){
+            std::cout << "resize timer list \n";
+        }
         timer_list_threads.resize(thread_id + 1);
     }
     return timer_list_threads[thread_id];
