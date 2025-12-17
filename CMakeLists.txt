@@ -1,12 +1,10 @@
 project(pd-cms-mpi)
 cmake_minimum_required(VERSION 3.5.0)
-cmake_policy(SET CMP0169 OLD)
 
 set(CPM_USE_NAMED_CACHE_DIRECTORIES ON)
 
-set(CPM_SOURCE_CACHE ${CMAKE_SOURCE_DIR}/3rd/CPMCache)
+set(CPM_SOURCE_CACHE ${CMAKE_SOURCE_DIR}/../3rd/CPMCache)
 include(cmake/CPM.cmake)
-include(cmake/code-format.cmake)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 set(CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/cmake/;${CMAKE_MODULE_PATH}")
 

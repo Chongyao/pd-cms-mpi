@@ -19,6 +19,7 @@ target_link_libraries(Eigen3_WITH_BLAS
 )
 target_compile_definitions(Eigen3_WITH_BLAS
   INTERFACE
+  EIGEN_USE_MKL_ALL
   EIGEN_USE_BLAS
   EIGEN_USE_LAPACKE
   INTERFACE

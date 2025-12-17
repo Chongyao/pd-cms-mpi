@@ -1,4 +1,5 @@
-set(BLA_VENDOR OpenBLAS)
+# set(BLA_VENDOR OpenBLAS)
+set(BLA_VENDOR Intel10_64lp)
 find_package(BLAS REQUIRED)
 if(BLAS_FOUND)
   message("-- BLAS libs @ ${BLAS_LIBRARIES}")
