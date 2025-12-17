@@ -9,5 +9,6 @@ target_link_libraries(cms
   Spectra
   SuiteSparse::CHOLMOD
   Eigen3_WITH_BLAS
-)
+  OpenMP::OpenMP_CXX)
+  
 target_compile_features(cms PUBLIC cxx_std_20)

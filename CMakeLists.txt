@@ -29,11 +29,11 @@ set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 
 # List of all includes
 set(INCLUDES
-  suitesparse
+  blas
   openmp
+  suitesparse
   eigen
   spectra
-  blas
   fmt
   spdlog
   mpi

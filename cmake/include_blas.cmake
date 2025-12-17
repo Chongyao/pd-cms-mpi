@@ -1,10 +1,13 @@
-# set(BLA_VENDOR OpenBLAS)
-set(BLA_VENDOR Intel10_64lp)
+set(BLA_VENDOR OpenBLAS)
+# set(BLA_VENDOR Intel10_64lp)
 find_package(BLAS REQUIRED)
 if(BLAS_FOUND)
   message("-- BLAS libs @ ${BLAS_LIBRARIES}")
 endif(BLAS_FOUND)
 
+if( ${BLA_VENDOR} STREQUAL "Intel10_64lp" )
+  add_compile_definitions(BLAS_USE_INTEL_MKL)
+endif()
 
 find_package(LAPACK REQUIRED)
 

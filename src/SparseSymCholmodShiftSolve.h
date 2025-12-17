@@ -6,6 +6,9 @@
 #include <Eigen/Core>
 #include <Eigen/Eigenvalues>
 #include <Eigen/SparseCholesky>
+#ifdef BLAS_USE_INTEL_MKL
+#include <Eigen/PardisoSupport>
+#endif
 #include <Eigen/SparseCore>
 #include <Eigen/SparseLU>
 #include <iostream>
@@ -46,7 +49,11 @@ private:
 
     ConstGenericSparseMatrix m_mat;
     const Index m_n;
+    #ifdef BLAS_USE_INTEL_MKL
+    Eigen::PardisoLLT<SparseMatrix> m_solver;
+    #else
     Eigen::CholmodSupernodalLLT<SparseMatrix> m_solver;
+    #endif
     mutable size_t cnt { 0 };
     // Eigen::CholmodSimplicialLDLT<SparseMatrix> m_solver;
     // Eigen::SparseLU<SparseMatrix> m_solver;

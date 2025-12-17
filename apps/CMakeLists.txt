@@ -1,12 +1,13 @@
 add_executable(main main.cpp)
 target_link_libraries(main
   cms
+  ${BLAS_LIBRARIES} ${LAPACK_LIBRARIES}
 )
 
 
 
 set(STEPS
-  1_env_check
+  # 1_env_check
   2_partition_matrix
   3_mpi_loader
 )
